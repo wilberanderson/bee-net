@@ -1,19 +1,19 @@
-# Bee detection utility
+# Bee detection utility `bee-net`
 
 ## Automatic cropping
 
 ### Setup directory
 
-0. Clone repository
+Clone repository
 
-    git clone github.com/wilberanderson/beeXXXXXXXXXXXX
-    cd beeXXXXXXXXXX
+    git clone github.com/wilberanderson/bee-net
+    cd bee-net
 
-1. Download the beespotter dataset: run `beescrape.py` until it all images are downloaded (roughly 15,000).
+Download the beespotter dataset: run `beescrape.py` until it all images are downloaded (roughly 15,000).
 
     python beescrape.py
 
-2. Remove any images that are errored or have issues. This is kind of difficult, the easiest way to get a bunch out is to sort by file size and remove any that are zero bytes. There may be a few more with issues but you should be able to catch those during training as the scripts are written to give warnings for image issues.
+Then remove any images that are errored or have issues. This is kind of difficult, the easiest way to get a bunch out is to sort by file size and remove any that are zero bytes. There may be a few more with issues but you should be able to catch those during training as the scripts are written to give warnings for image issues.
 
 ### Choose training method
 
@@ -33,7 +33,7 @@ Then export the data from roboflow as yolov5 labels. After each training and ana
 
 ### Running the notebook
 
-
+`cd` into the `bee-net` directory. Run the command `jupter notebook .`. This should open the git directory in your browser. The cropping notebook is named `Training.ipynb`. Be sure to change the directories in the file to match the hierarchy on your computer. I *highly* reccomend using and SSD to hold the images, otherwise training is going to take exponentially longer. It goes without saying that a powerful computer is needed to make training quick. In my case, it takes roughly 45 minutes start-to-finish with an R9 3900X, a 2070 Super 8GB, 32 GB of memory, and the entire training directory on a local m.2 drive.
 
 ### Dependencies
 
