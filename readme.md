@@ -19,7 +19,7 @@ Then remove any images that are errored or have issues. This is kind of difficul
 
 The way I set up my training sets during this phase was by using [roboflow](app.roboflow.ai). This works well when there isn't much data, but after a certain size you have to pay for more source images.
 
-To follow my exact steps and replicate my procedure, copy ALL of the `.txt` files in `training_set_labels/seed_labels` into an empty directory. Then copy the images with the same names as those text files into the same directory. This is trivial and left as an exercise for the reader. Then upload the entire dataset to roboflow. My settings were:
+To follow my exact steps and replicate my procedure, copy ALL of the `.txt` files in `labels_seed` into an empty directory. Then copy the images with the same names as those text files into the same directory. This is trivial and left as an exercise for the reader. Then upload the entire dataset to roboflow. My settings were:
     
     # Preprocessing options
     auto-orient: on
