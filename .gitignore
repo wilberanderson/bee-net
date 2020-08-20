@@ -7,7 +7,7 @@ test
 train
 valid
 bees_unsorted_all
-#predicted_text
+predicted_text
 
 #filetypes
 *.jpg
