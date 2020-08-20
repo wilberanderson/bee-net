@@ -1,0 +1,19 @@
+#directories
+.ipynb_checkpoints
+yolov5
+label_data_*
+cropped_imgs
+test
+train
+valid
+bees_unsorted_all
+#predicted_text
+
+#filetypes
+*.jpg
+
+
+#specific files
+data.yaml
+README.roboflow.txt
+skiplist.txt
