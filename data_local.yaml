@@ -1,0 +1,5 @@
+train: /m2docs/res/train/images/
+val: /m2docs/res/valid/images/
+
+nc: 1
+names: ['bee']
