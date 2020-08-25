@@ -12,8 +12,9 @@ predicted_text
 #filetypes
 *.jpg
 
-
 #specific files
 data.yaml
 README.roboflow.txt
 skiplist.txt
+
+!git_images/*
