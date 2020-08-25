@@ -41,8 +41,9 @@ Then export the data from roboflow as yolov5 labels. After each training and ana
 Before you put the updated images into the training set, be sure to check through the `cropped_imgs` directory. If any pictures are not of bees, remove
  them, then re-run the cell after the heading "Copy files to new folder". This should create a new version of the label_data_* folder, which you can use for training, testing, and validation.
 
-After enough (2-4, depending) runs of the notebook where you feed the output data back into the training set, the algorithm should kick in and take over the training.
+After enough (2-4, depending) runs of the notebook where you feed the output data back into the training set, the algorithm should kick in and take over the training. At that point, you should switch to locally hosted files for training.
 
+Sample detection:
 ![Sample detection:](git_images/4978-1.jpg)
 
 ![...and the crop](git_images/4978-1c.jpg)
