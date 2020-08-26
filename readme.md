@@ -43,7 +43,7 @@ Before you put the updated images into the training set, be sure to check throug
 
 After enough (2-4, depending) runs of the notebook where you feed the output data back into the training set, the algorithm should kick in and take over the training. At that point, you should switch to locally hosted files for training.
 
-![giou loss](git_images/yolo_train_giou_loss.svg)
+<img src='git_images/yolo_train_giou_loss.svg'>
 
 Sample detection:
 ![Sample detection:](git_images/4978-1.jpg)
