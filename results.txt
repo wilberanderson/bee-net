@@ -1,0 +1,48 @@
+========================================= First run:
+Apis_mellifera total 472
+Bombus_impatiens total 1075
+Bombus_auricomus total 442
+Bombus_bimaculatus total 637
+Bombus_griseocollis total 1011
+
+after rotations: [1088, 3500, 968, 1748, 3244]
+
+Net(
+  (conv1): Conv2d(3, 6, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(6, 16, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=250000, out_features=512, bias=True)
+  (fc2): Linear(in_features=512, out_features=16, bias=True)
+  (fc3): Linear(in_features=16, out_features=5, bias=True)
+)
+
+Predicted:  Bombus_griseocollis Bombus_griseocollis Bombus_griseocollis Apis_mellifera
+Accuracy of the network on the test images: 49 %
+Accuracy of Apis_mellifera : 68 %
+Accuracy of Bombus_impatiens : 31 %
+Accuracy of Bombus_auricomus : 15 %
+Accuracy of Bombus_bimaculatus : 40 %
+Accuracy of Bombus_griseocollis : 54 %
+
+
+
+Net(
+  (conv1): Conv2d(3, 6, kernel_size=(5, 5), stride=(1, 1))
+  (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (conv2): Conv2d(6, 16, kernel_size=(5, 5), stride=(1, 1))
+  (fc1): Linear(in_features=250000, out_features=1024, bias=True)
+  (fc2): Linear(in_features=1024, out_features=256, bias=True)
+  (fc3): Linear(in_features=256, out_features=64, bias=True)
+  (fc4): Linear(in_features=64, out_features=5, bias=True)
+)
+Predicted:  Bombus_griseocollis Bombus_griseocollis Bombus_bimaculatus Apis_mellifera
+Accuracy of the network on the test images: 53 %
+Accuracy of Apis_mellifera : 55 %
+Accuracy of Bombus_impatiens : 57 %
+Accuracy of Bombus_auricomus : 15 %
+Accuracy of Bombus_bimaculatus : 51 %
+Accuracy of Bombus_griseocollis : 67 %
+
+
+
+-> unbalanced classes (duh)
