@@ -64,3 +64,94 @@ Accuracy of Bombus_bimaculatus : 48 %
 Accuracy of Bombus_griseocollis : 40 %
 
 
+added dropout:
+
+20200909-120903 
+class Net(nn.Module):
+    def __init__(self):
+        super(Net, self).__init__()
+        self.conv1 = nn.Conv2d(3, 6, 5)
+        self.pool = nn.MaxPool2d(2, 2)
+        self.conv2 = nn.Conv2d(6, 16, 5)
+        self.fc1 = nn.Linear(16 * 125 * 125, 512)
+        self.fc2 = nn.Linear(512, 5)
+        self.dropout = nn.Dropout(p=0.2)
+
+    def forward(self, x):
+        x = self.pool(F.relu(self.conv1(x)))
+        x = self.pool(F.relu(self.conv2(x)))
+        x = x.view(-1, 16 * 125 * 125)
+        x = F.relu(self.fc1(x))
+        x = self.dropout(self.fc2(x))
+        return x
+[[35  0  4  9 16]
+ [ 0 31  7 14 12]
+ [ 3  9 10 16 26]
+ [ 1  6 10 24 23]
+ [ 3  8 10 16 27]]        
+[54.6875 48.4375 15.625  37.5    42.1875]
+
+
+
+changed to 3,3 kernel from 5,5; kept dropout:
+notes: MASSIVE validation loss. val_acc peaked early and dropped afterwards.
+20200909-163718
+class Net(nn.Module):
+    def __init__(self):
+        super(Net, self).__init__()
+        self.pool = nn.MaxPool2d(2, 2)
+        self.conv1 = nn.Conv2d(3, 6, 3)
+        self.conv2 = nn.Conv2d(6, 16, 3)
+        self.fc1 = nn.Linear(16 * 126*126, 1024)
+        self.fc2 = nn.Linear(1024, 512)
+        self.fc3 = nn.Linear(512, 5)
+        self.dropout = nn.Dropout(p=0.2)
+
+    def forward(self, x):
+        x = self.pool(F.relu(self.conv1(x)))
+        x = self.pool(F.relu(self.conv2(x)))
+        x = x.view(-1, 16 * 126*126)
+        x = F.relu(self.fc1(x))
+        x = F.relu(self.fc2(x))
+        x = self.dropout(self.fc3(x))
+        return x
+Best: 9 @ 41.297468% -> epoch target 30        
+[[28  2  6 19  9]
+ [ 1 33  2 10 18]
+ [ 2  2 11 18 31]
+ [ 4  7  9 21 23]
+ [ 2  7  8 19 28]]
+
+<Figure size 640x480 with 1 Axes>
+
+['Apis_mellifera', 'Bombus_impatiens', 'Bombus_auricomus', 'Bombus_bimaculatus', 'Bombus_griseocollis']
+[43.75   51.5625 17.1875 32.8125 43.75  ]
+
+
+
+embiggened data set
+20200909-231713
+class Net(nn.Module):
+    def __init__(self):
+        super(Net, self).__init__()
+        self.pool = nn.MaxPool2d(2, 2)
+        self.conv1 = nn.Conv2d(3, 6, 5)
+        self.conv2 = nn.Conv2d(6, 16, 5)
+        self.fc1 = nn.Linear(16 * 125 * 125, 512)
+        self.fc2 = nn.Linear(512, 5)
+        self.dropout = nn.Dropout(p = 0.2)
+
+    def forward(self, x):
+        x = self.pool(F.relu(self.conv1(x)))
+        x = self.pool(F.relu(self.conv2(x)))
+        x = x.view(-1, 16 * 125 * 125)
+        x = F.relu(self.fc1(x))
+        x = self.dropout(self.fc2(x))
+        return x
+
+[[32  1  4 14 13]
+ [ 3 30  7 13 11]
+ [ 6  6 21 14 17]
+ [ 8  4 13 20 19]
+ [ 3  4 12 15 30]]
+[50.     46.875  32.8125 31.25   46.875 ]

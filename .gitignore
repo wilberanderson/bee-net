@@ -6,6 +6,7 @@ cropped_imgs
 test
 train
 valid
+data
 bees_unsorted_all
 predicted_text
 
@@ -18,3 +19,5 @@ README.roboflow.txt
 skiplist.txt
 
 !git_images/*
+models
+models_progress
