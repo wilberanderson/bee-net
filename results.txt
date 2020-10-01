@@ -155,3 +155,13 @@ class Net(nn.Module):
  [ 8  4 13 20 19]
  [ 3  4 12 15 30]]
 [50.     46.875  32.8125 31.25   46.875 ]
+
+
+Notes october 1:
+
+more conv layers (3-4)
+changing kernel sizes
+
+maybe add a fake class
+
+dropout after last conv layer
