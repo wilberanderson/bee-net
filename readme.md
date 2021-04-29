@@ -1,5 +1,9 @@
 # Bee detection utility `bee-net`
 
+[Slide presentation](https://docs.google.com/presentation/d/1e2axk8f3Io_Na93GL4-SNr05wLJq_xfuC_8pxtovHgQ/edit?usp=sharing)
+
+[Video presentation](https://youtu.be/mtkBBcZfD8A)
+
 ## Automatic cropping
 
 ### Setup directory
